@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/jump_state.gd"
 }, {
+"base": "Interactable",
+"class": "LeverInteractable",
+"language": "GDScript",
+"path": "res://lever/lever_interactable.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -92,6 +97,7 @@ _global_script_class_icons={
 "InteractState": "",
 "Interactable": "",
 "JumpState": "",
+"LeverInteractable": "",
 "Player": "",
 "PlayerState": "",
 "PrintInteractable": "",
