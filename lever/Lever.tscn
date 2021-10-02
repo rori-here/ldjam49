@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Lever" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="LeverA" type="StaticBody2D" parent="."]
@@ -32,3 +32,6 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="LeverB"]
 texture = ExtResource( 1 )
+
+[connection signal="lever_pull" from="LeverA" to="." method="_on_LeverA_lever_pull"]
+[connection signal="lever_pull" from="LeverB" to="." method="_on_LeverB_lever_pull"]
