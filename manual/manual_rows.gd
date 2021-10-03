@@ -1,9 +1,9 @@
-extends Control
+extends GridContainer
 
 export(Resource) var manual_resource
 onready var manual: Manual = manual_resource
 
-const manual_entry_ui = preload("res://manual/ManualEntryUI.tscn")
+const manual_left_head_ui = preload("res://manual/ManualLeftHeadUI.tscn")
 
 func _ready():
 	_on_manual_changed()
@@ -15,13 +15,7 @@ func _on_manual_changed():
 		remove_child(obj)
 		obj.queue_free()
 	
-	print(manual.get_lights())
-	
 	for entry in manual.get_lights():
-		var light = entry
-		for _i in light.get_input_length(): 
-			var slot = manual_entry_ui.instance()
-			
-			add_child(slot)
-			
-			slot.display(entry, _i)	
+		var slot = manual_left_head_ui.instance()
+		add_child(slot)
+		slot.display(entry.color)	
