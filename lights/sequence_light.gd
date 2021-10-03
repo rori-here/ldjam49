@@ -4,7 +4,7 @@ class_name SequenceLight
 enum Hue {
 	RED
 	GREEN
-	YELLOW
+	BLUE
 }
 
 enum Status {
@@ -37,7 +37,7 @@ func get_input_length():
 
 func generate(lever_states: Array):
 	inputs = []
-
+	print(lever_states)
 	for i in range(0, Status.size()):
 		randomize()
 		var index = round(rand_range(0, lever_states.size() - 1))

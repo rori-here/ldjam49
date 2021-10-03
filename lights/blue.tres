@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-hue = 0
+hue = 2
 current_status = 0

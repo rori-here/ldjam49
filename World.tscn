@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://lever/Lever.tscn" type="PackedScene" id=2]
@@ -8,17 +8,20 @@
 [ext_resource path="res://lever/xy-lever.tres" type="Resource" id=6]
 [ext_resource path="res://manual/manual.tres" type="Resource" id=7]
 [ext_resource path="res://sequencer/input_sequence_debugger.gd" type="Script" id=8]
-[ext_resource path="res://manual/ManualUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://lights/blue.tres" type="Resource" id=9]
 [ext_resource path="res://manual/ManualGenerator.tscn" type="PackedScene" id=10]
 [ext_resource path="res://levels/DayTimer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://levels/day_timer.gd" type="Script" id=12]
 [ext_resource path="res://manual/Meltdown.tscn" type="PackedScene" id=13]
 [ext_resource path="res://meltdown/reactor.tres" type="Resource" id=14]
-[ext_resource path="res://lights/Lights.tscn" type="PackedScene" id=15]
+[ext_resource path="res://lights/Light.tscn" type="PackedScene" id=15]
+[ext_resource path="res://lights/red.tres" type="Resource" id=16]
+[ext_resource path="res://lights/green.tres" type="Resource" id=17]
 
 [node name="World" type="Node2D"]
 
 [node name="ManualGenerator" parent="." instance=ExtResource( 10 )]
+process_priority = 0
 manual_resource = ExtResource( 7 )
 
 [node name="Meltdown" parent="." instance=ExtResource( 13 )]
@@ -72,17 +75,24 @@ position = Vector2( 86.1435, 158.275 )
 sequencer_node_path = NodePath("../Sequencer")
 lever_resource = ExtResource( 6 )
 
+[node name="Light" parent="." instance=ExtResource( 15 )]
+position = Vector2( 217.751, 72.8368 )
+manual_resource = ExtResource( 7 )
+light_resource = ExtResource( 16 )
+
+[node name="Light2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 106.979, 52.3514 )
+manual_resource = ExtResource( 7 )
+light_resource = ExtResource( 17 )
+
+[node name="Light3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 146.432, 156.296 )
+manual_resource = ExtResource( 7 )
+light_resource = ExtResource( 9 )
+
 [node name="TooSlowTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 autostart = true
-
-[node name="Lamps2" parent="." instance=ExtResource( 15 )]
-position = Vector2( 148.873, 88.3483 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ManualUI" parent="CanvasLayer" instance=ExtResource( 9 )]
-visible = false
 
 [connection signal="input_sequence_changed" from="Sequencer" to="Sequencer/Debugging/InputSequenceLabel" method="_on_Sequencer_sequence_changed"]
