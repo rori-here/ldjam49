@@ -9,7 +9,7 @@ onready var reactor: Reactor = reactor_resource
 func _ready():
 	day.connect("day_cleared", self, "_on_day_cleared")
 	reactor.connect("meltdown", self, "_on_meltdown")
-	
+
 func _on_day_cleared():
 	get_tree().change_scene("res://lifecycle/DayClearedScreen.tscn")
 	

@@ -11,7 +11,7 @@ func _process(delta):
 			_movement_vector = movement_vector
 
 		var vector_angle = _movement_vector.angle()
-		set_rotation_degrees(rad2deg(vector_angle) - 90)
+		set_rotation_degrees(rad2deg(vector_angle))
 
 func _on_StateMachine_transitioned(state_name):
 	match state_name:
