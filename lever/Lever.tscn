@@ -1,17 +1,17 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://assets/Action RPG Resources/World/Bush.png" type="Texture" id=1]
+[ext_resource path="res://shaders/outline-shader.tres" type="Material" id=1]
 [ext_resource path="res://lever/lever_interactable.gd" type="Script" id=2]
 [ext_resource path="res://lever/lever.gd" type="Script" id=3]
 [ext_resource path="res://lever/lever.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.54737, 4.93664 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3.64418, 4.98084 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "A-to-N"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "values": [ 21, 22, 23, 24, 25, 26, 27 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "B-to-N"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -41,7 +41,7 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "N-to-A"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -56,8 +56,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 16, 17, 18, 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "N-to-B"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -82,12 +81,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverA"]
 position = Vector2( 2.32019, -1.03856 )
-shape = SubResource( 7 )
-
-[node name="Sprite" type="Sprite" parent="LeverA"]
-visible = false
-scale = Vector2( 0.196858, 0.253018 )
-texture = ExtResource( 1 )
+shape = SubResource( 1 )
 
 [node name="LeverB" type="StaticBody2D" parent="."]
 position = Vector2( 6.90797, 3.0715 )
@@ -97,25 +91,22 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverB"]
 position = Vector2( -2.2539, -1.08276 )
-shape = SubResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="LeverB"]
-visible = false
-scale = Vector2( 0.255013, 0.225264 )
-texture = ExtResource( 1 )
+shape = SubResource( 2 )
 
 [node name="LeverAnimation" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="LeverAnimation"]
-position = Vector2( -0.0191708, -0.0441952 )
+material = ExtResource( 1 )
+position = Vector2( -23.9812, 20.9169 )
 texture = ExtResource( 4 )
+offset = Vector2( 23.962, -20.9611 )
 hframes = 28
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LeverAnimation"]
-anims/A-to-N = SubResource( 4 )
-anims/B-to-N = SubResource( 5 )
-anims/N-to-A = SubResource( 6 )
-anims/N-to-B = SubResource( 3 )
+anims/A-to-N = SubResource( 3 )
+anims/B-to-N = SubResource( 4 )
+anims/N-to-A = SubResource( 5 )
+anims/N-to-B = SubResource( 6 )
 
 [connection signal="lever_pull" from="LeverA" to="." method="_on_LeverA_lever_pull"]
 [connection signal="lever_pull" from="LeverB" to="." method="_on_LeverB_lever_pull"]
