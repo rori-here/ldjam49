@@ -8,6 +8,7 @@ const manual_entry_ui = preload("res://manual/ManualEntryUI.tscn")
 func _ready():
 	_on_manual_changed()
 	manual.connect("manual_changed", self, "_on_manual_changed")
+	manual.connect("manual_opened", self, "_on_manual_opened")
 
 func _on_manual_changed():
 	for obj in get_children():
@@ -21,4 +22,4 @@ func _on_manual_changed():
 			
 			add_child(slot)
 			
-			slot.display(entry, _i)
+			slot.display(entry, _i)	

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/monogram-medium.tres" type="DynamicFont" id=1]
+[ext_resource path="res://meltdown/meltdown_ui.gd" type="Script" id=2]
+
+[node name="MeltdownUI" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReactorLabel" type="Label" parent="."]
+margin_left = 109.0
+margin_top = 83.0
+margin_right = 211.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.909804, 0.231373, 0.231373, 1 )
+text = "meltdown {level}%"
+align = 1
+uppercase = true

@@ -1,64 +1,78 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://lever/Lever.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sequencer/sequencer.gd" type="Script" id=3]
-[ext_resource path="res://sequencer/sequence_debugger.gd" type="Script" id=4]
+[ext_resource path="res://manual/ManualUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://lever/ab-lever.tres" type="Resource" id=5]
 [ext_resource path="res://lever/xy-lever.tres" type="Resource" id=6]
 [ext_resource path="res://manual/manual.tres" type="Resource" id=7]
-[ext_resource path="res://sequencer/input_sequence_debugger.gd" type="Script" id=8]
 [ext_resource path="res://lights/blue.tres" type="Resource" id=9]
 [ext_resource path="res://manual/ManualGenerator.tscn" type="PackedScene" id=10]
 [ext_resource path="res://levels/DayTimer.tscn" type="PackedScene" id=11]
-[ext_resource path="res://levels/day_timer.gd" type="Script" id=12]
+[ext_resource path="res://manual/Manual.tscn" type="PackedScene" id=12]
 [ext_resource path="res://manual/Meltdown.tscn" type="PackedScene" id=13]
 [ext_resource path="res://meltdown/reactor.tres" type="Resource" id=14]
 [ext_resource path="res://lights/Light.tscn" type="PackedScene" id=15]
 [ext_resource path="res://lights/red.tres" type="Resource" id=16]
 [ext_resource path="res://lights/green.tres" type="Resource" id=17]
+[ext_resource path="res://meltdown/MeltdownUI.tscn" type="PackedScene" id=18]
+[ext_resource path="res://levels/DayUI.tscn" type="PackedScene" id=19]
+[ext_resource path="res://levels/day.tres" type="Resource" id=21]
 
 [node name="World" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -13.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DayUI" parent="CanvasLayer/HSplitContainer" instance=ExtResource( 19 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 54.0
+margin_bottom = 13.0
+day_resource = ExtResource( 21 )
+
+[node name="MeltdownUI" parent="CanvasLayer/HSplitContainer" instance=ExtResource( 18 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 66.0
+margin_right = 320.0
+margin_bottom = 13.0
+reactor_resource = ExtResource( 14 )
+
+[node name="ManualUI" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false
 
 [node name="ManualGenerator" parent="." instance=ExtResource( 10 )]
 process_priority = 0
 manual_resource = ExtResource( 7 )
-
-[node name="Meltdown" parent="." instance=ExtResource( 13 )]
-autostart = true
-reactor_resource = ExtResource( 14 )
-
-[node name="DayTimer" parent="." instance=ExtResource( 11 )]
-autostart = true
-script = ExtResource( 12 )
 
 [node name="Sequencer" type="Node" parent="."]
 script = ExtResource( 3 )
 manual_resource = ExtResource( 7 )
 too_slow_timer_node_path = NodePath("../TooSlowTimer")
 
-[node name="Debugging" type="CanvasLayer" parent="Sequencer"]
+[node name="Timers" type="Node" parent="."]
 
-[node name="InputSequenceLabel" type="Label" parent="Sequencer/Debugging"]
-margin_left = -0.229721
-margin_top = 14.7018
-margin_right = 61.7703
-margin_bottom = 28.7018
-text = "Sequence: {sequence}"
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Meltdown" parent="Timers" instance=ExtResource( 13 )]
+autostart = true
+reactor_resource = ExtResource( 14 )
 
-[node name="Sequence" type="Label" parent="Sequencer/Debugging"]
-margin_top = 29.0
-margin_right = 186.0
-margin_bottom = 43.0
-text = "Actual Sequence: {sequence}"
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="DayTimer" parent="Timers" instance=ExtResource( 11 )]
+day_resource = ExtResource( 21 )
+
+[node name="Manual" parent="." instance=ExtResource( 12 )]
+position = Vector2( 8, 88 )
+collision_layer = 3
+collision_mask = 0
 manual_resource = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -94,5 +108,3 @@ sequence_light_resource = ExtResource( 17 )
 wait_time = 10.0
 one_shot = true
 autostart = true
-
-[connection signal="input_sequence_changed" from="Sequencer" to="Sequencer/Debugging/InputSequenceLabel" method="_on_Sequencer_sequence_changed"]
