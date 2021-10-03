@@ -7,14 +7,18 @@ onready var reactor_label = $ReactorLabel
 onready var reactor_label_initial_text = $ReactorLabel.text
 
 func _ready():
-	reactor.connect("penalized", self, "_on_penalized")
-	reactor.connect("melt", self, "_on_melt")
+	reactor.connect("cooled", self, "_on_cooled")
+	reactor.connect("heated", self, "_on_heated")
+	reactor.connect("melted", self, "_on_melted")
 	set_text(reactor.level)
 
-func _on_penalized(amount: int, level: int):
+func _on_cooled(_heat: int, level: int):
+	set_text(level)
+
+func _on_heated(_heat: int, level: int):
 	set_text(level)
 	
-func _on_melt(rate: int, level: int):
+func _on_melted(_rate: int, level: int):
 	set_text(level)
 	
 func set_text(level: int):

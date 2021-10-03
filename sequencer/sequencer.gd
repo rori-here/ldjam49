@@ -6,12 +6,11 @@ enum SequenceState {
 	IN_PROGRESS
 	SUCCESSFUL
 }
+export (Resource) var reactor_resource
+onready var reactor: Reactor = reactor_resource
 
 export (Resource) var manual_resource
 onready var manual: Manual = manual_resource
-#
-#export(NodePath) var too_slow_timer_node_path
-#onready var too_slow_timer_node: Timer = get_node(too_slow_timer_node_path)
 
 var input_sequence = []
 
@@ -25,7 +24,6 @@ func reset():
 	input_sequence = []
 	manual.create_sequence()
 	emit_signal("input_sequence_changed", input_sequence)
-#	too_slow_timer_node.start()
 
 func add_to_sequence(value: String):
 	input_sequence.append(value)
@@ -57,7 +55,9 @@ func is_sequence_match():
 		return SequenceState.IN_PROGRESS
 
 func _on_successful():
+	reactor.cool()
 	reset()
 
 func _on_failed():
+	reactor.heat()
 	reset()

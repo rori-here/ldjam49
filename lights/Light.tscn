@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 5 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=11]
 resource_name = "blue_blinking"
 length = 2.0
 loop = true
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 3, 4 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=12]
 resource_name = "blue_off"
 length = 0.001
 tracks/0/type = "value"
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=13]
 resource_name = "blue_on"
 length = 0.001
 tracks/0/type = "value"
@@ -167,9 +167,9 @@ position = Vector2( 0, 3 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/blue_blinking = SubResource( 2 )
-anims/blue_off = SubResource( 3 )
-anims/blue_on = SubResource( 4 )
+anims/blue_blinking = SubResource( 11 )
+anims/blue_off = SubResource( 12 )
+anims/blue_on = SubResource( 13 )
 anims/green_blinking = SubResource( 5 )
 anims/green_off = SubResource( 6 )
 anims/green_on = SubResource( 7 )

@@ -87,6 +87,7 @@ process_priority = 0
 manual_resource = ExtResource( 7 )
 
 [node name="Sequencer" parent="." instance=ExtResource( 3 )]
+reactor_resource = ExtResource( 14 )
 
 [node name="Timers" type="Node" parent="."]
 
@@ -127,13 +128,12 @@ drag_margin_bottom = 0.25
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Lever" parent="YSort" instance=ExtResource( 2 )]
+[node name="LeverAB" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 184, 104 )
 sequencer_node_path = NodePath("../../Sequencer")
 lever_resource = ExtResource( 5 )
 
-[node name="Lever2" parent="YSort" instance=ExtResource( 2 )]
-modulate = Color( 0.917647, 0.301961, 0.301961, 1 )
+[node name="LeverXY" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 184, 56 )
 sequencer_node_path = NodePath("../../Sequencer")
 lever_resource = ExtResource( 6 )
