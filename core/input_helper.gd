@@ -15,4 +15,7 @@ func has_movement_input() -> bool:
 
 func is_jump_just_pressed():
 	return Input.is_action_just_pressed("player_jump")
+
+func is_close_manual_just_pressed():
+	return Input.is_action_just_pressed("manual_close")
 	

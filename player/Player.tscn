@@ -9,11 +9,11 @@
 [ext_resource path="res://player/input_rotator.gd" type="Script" id=7]
 [ext_resource path="res://player/state_machine_debugger.gd" type="Script" id=8]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
 height = 4.0
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "SleepyEyes"
 length = 8.0
 loop = true
@@ -54,7 +54,7 @@ frame = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -80,7 +80,7 @@ script = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "SleepyEyes"
-anims/SleepyEyes = SubResource( 3 )
+anims/SleepyEyes = SubResource( 2 )
 next/SleepyEyes = "SleepyEyes"
 
 [connection signal="transitioned" from="StateMachine" to="Debugging/StateMachineDebug" method="_on_StateMachine_transitioned"]

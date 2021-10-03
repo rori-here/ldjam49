@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 hue = 2
 current_status = 0
+color = Color( 0, 0.552941, 1, 1 )

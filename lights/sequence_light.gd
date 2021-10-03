@@ -17,6 +17,8 @@ enum Status {
 
 export(Hue) var hue = Hue.RED
 export(Status) var current_status = Status.OFF
+export(Color) var color = "#ffffff"
+
 var inputs = []
 
 func get_status(status: int):

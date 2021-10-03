@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://manual/manual_left_head_ui.gd" type="Script" id=1]
+[ext_resource path="res://lights/circle.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="ManualLeftHeadUI" type="Panel"]
+anchor_right = 0.067
+anchor_bottom = 0.119
+margin_right = -0.0799999
+margin_bottom = -0.0650005
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 16, 16 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 15.0
+margin_right = 16.1575
+margin_bottom = 16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color( 0.180392, 0.133333, 0.184314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 7.40204, 8.08706 )
+texture = ExtResource( 2 )
