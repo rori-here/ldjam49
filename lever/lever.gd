@@ -11,25 +11,35 @@ onready var spriteA = $LeverA/Sprite
 onready var spriteB = $LeverB/Sprite
 onready var current_state = lever_resource.lever_n_id
 
+onready var animationPlayer = $LeverAnimation/AnimationPlayer
+
+var isAnimating: bool = false
+
 func update_sequencer():
 	sequencer.add_to_sequence(current_state)
 
 func _on_LeverA_lever_pull():
-	if current_state == lever_resource.lever_b_id:
-		current_state = lever_resource.lever_n_id
-		collisionA.set_disabled(false)
-		collisionB.set_disabled(false)
-	else:
-		current_state = lever_resource.lever_a_id
-		collisionA.set_disabled(true)
-		update_sequencer()
+	if animationPlayer.current_animation == '':
+		if current_state == lever_resource.lever_b_id:
+			current_state = lever_resource.lever_n_id
+			collisionA.set_disabled(false)
+			collisionB.set_disabled(false)		
+			animationPlayer.play("B-to-N")
+		else:
+			current_state = lever_resource.lever_a_id
+			collisionA.set_disabled(true)
+			animationPlayer.play("N-to-A")
+			update_sequencer()
 
 func _on_LeverB_lever_pull():
-	if current_state == lever_resource.lever_a_id:
-		current_state = lever_resource.lever_n_id
-		collisionA.set_disabled(false)
-		collisionB.set_disabled(false)
-	else:
-		current_state = lever_resource.lever_b_id
-		collisionB.set_disabled(true)
-		update_sequencer()
+	if animationPlayer.current_animation == '':
+		if current_state == lever_resource.lever_a_id:
+			current_state = lever_resource.lever_n_id
+			collisionA.set_disabled(false)
+			collisionB.set_disabled(false)
+			animationPlayer.play("A-to-N")
+		else:
+			current_state = lever_resource.lever_b_id
+			collisionB.set_disabled(true)
+			animationPlayer.play("N-to-B")
+			update_sequencer()
