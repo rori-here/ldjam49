@@ -21,6 +21,7 @@ func generate():
 func create_sequence():
 	for light in sequence_lights:
 		light.unstabilize()
+		print(light.get_current_input())
 	
 	emit_signal("sequence_changed", get_lights())
 

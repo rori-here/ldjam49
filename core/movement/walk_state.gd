@@ -1,7 +1,7 @@
 extends PlayerState
 class_name WalkState
 
-export var speed = 150
+export var speed = 75
 export var acceleration = 1
 
 func process(_delta: float) -> void:

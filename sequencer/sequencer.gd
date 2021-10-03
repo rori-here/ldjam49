@@ -56,7 +56,6 @@ func is_sequence_match():
 	else:
 		return SequenceState.IN_PROGRESS
 		
-
 func _on_successful():
 	reset()
 	

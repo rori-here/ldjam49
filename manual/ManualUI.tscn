@@ -23,8 +23,8 @@ __meta__ = {
 }
 
 [node name="Table" type="GridContainer" parent="MarginContainer"]
-margin_right = 280.0
-margin_bottom = 140.0
+margin_right = 200.0
+margin_bottom = 95.0
 columns = 3
 script = ExtResource( 2 )
 __meta__ = {

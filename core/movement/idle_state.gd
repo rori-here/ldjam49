@@ -1,7 +1,7 @@
 extends PlayerState
 class_name IdleState
 
-export var friction = 0.2
+export var friction = 0.05
 
 func process(_delta: float) -> void:
 	if InputHelper.has_movement_input():
