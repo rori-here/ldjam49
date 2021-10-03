@@ -11,9 +11,13 @@ onready var spriteA = $LeverA/Sprite
 onready var spriteB = $LeverB/Sprite
 onready var current_state = lever_resource.lever_n_id
 
-onready var animationPlayer = $LeverAnimation/AnimationPlayer
+onready var animationPlayer = $AnimationPlayer
 
 var isAnimating: bool = false
+
+func _ready():
+	spriteA.texture = lever_resource.texture
+	spriteB.texture = lever_resource.texture
 
 func update_sequencer():
 	sequencer.add_to_sequence(current_state)

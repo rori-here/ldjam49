@@ -29,10 +29,14 @@ func _on_interact_done():
 func _on_InteractState_body_entered(collider):
 	if (collider is Interactable && collider != current_collider):
 		var _connect = collider.connect("close_interaction", self, "_on_interact_done")
-
 		current_collider = collider
+		
+		if collider.has_method("interactable"):
+			collider.interactable(true)
 
 func _on_InteractState_body_exited(collider):
 	if (collider == current_collider):
 		var _connect = collider.disconnect("close_interaction", self, "_on_interact_done")
+		if collider.has_method("interactable"):
+			collider.interactable(false)
 		current_collider = null

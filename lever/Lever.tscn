@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://shaders/outline-shader.tres" type="Material" id=1]
 [ext_resource path="res://lever/lever_interactable.gd" type="Script" id=2]
 [ext_resource path="res://lever/lever.gd" type="Script" id=3]
 [ext_resource path="res://lever/lever.png" type="Texture" id=4]
+[ext_resource path="res://ui/monogram-medium.tres" type="DynamicFont" id=5]
+[ext_resource path="res://lever/ab.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.54737, 4.93664 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 3.64418, 4.98084 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "A-to-N"
@@ -70,39 +69,83 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[node name="Lever" type="Node2D"]
+[node name="Lever" type="StaticBody2D"]
 script = ExtResource( 3 )
 
 [node name="LeverA" type="StaticBody2D" parent="."]
 position = Vector2( -6.87219, 2.98311 )
-collision_layer = 3
+collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverA"]
-position = Vector2( 2.32019, -1.03856 )
+position = Vector2( 2.87219, -0.98311 )
 shape = SubResource( 1 )
 
+[node name="Interactable" type="Label" parent="LeverA"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.87219
+margin_top = -22.9831
+margin_right = 10.8722
+margin_bottom = -9.98311
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "F"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="LeverA"]
+position = Vector2( -4.12781, 3.01689 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+hframes = 2
+
 [node name="LeverB" type="StaticBody2D" parent="."]
-position = Vector2( 6.90797, 3.0715 )
-collision_layer = 3
+position = Vector2( -6.87219, 2.98311 )
+collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverB"]
-position = Vector2( -2.2539, -1.08276 )
-shape = SubResource( 2 )
+position = Vector2( 11.8722, -0.98311 )
+shape = SubResource( 1 )
 
-[node name="LeverAnimation" type="Node2D" parent="."]
+[node name="Interactable" type="Label" parent="LeverB"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.87219
+margin_top = -22.9831
+margin_right = 10.8722
+margin_bottom = -9.98311
+custom_fonts/font = ExtResource( 5 )
+text = "F"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Sprite" type="Sprite" parent="LeverAnimation"]
+[node name="Sprite" type="Sprite" parent="LeverB"]
+position = Vector2( 18.8722, 3.01689 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+hframes = 2
+frame = 1
+
+[node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 1 )
-position = Vector2( -23.9812, 20.9169 )
+position = Vector2( -24.998, 20.8811 )
+scale = Vector2( 1.0637, 0.997238 )
 texture = ExtResource( 4 )
 offset = Vector2( 23.962, -20.9611 )
 hframes = 28
+frame = 14
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LeverAnimation"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -2, 1, -4, 2, -4, 7, 4, 7, 4, 2, 2, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/A-to-N = SubResource( 3 )
 anims/B-to-N = SubResource( 4 )
 anims/N-to-A = SubResource( 5 )
