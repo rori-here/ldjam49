@@ -9,7 +9,6 @@ func _ready():
 	manual.connect("sequence_changed", self, "_on_sequence_changed")
 
 func _on_sequence_changed(sequence: Array):
-	print("hello")
 	var sequenceText = ''
 
 	if sequence.size() > 0:

@@ -124,11 +124,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://sequencer/sequence_debugger.gd"
 }, {
-"base": "Node",
-"class": "SequenceFactory",
-"language": "GDScript",
-"path": "res://sequence_factory.gd"
-}, {
 "base": "Resource",
 "class": "SequenceLight",
 "language": "GDScript",
@@ -183,7 +178,6 @@ _global_script_class_icons={
 "Reactor": "",
 "RespawnState": "",
 "SequenceDebugger": "",
-"SequenceFactory": "",
 "SequenceLight": "",
 "Sequencer": "",
 "State": "",

@@ -15,14 +15,13 @@ func setup(sls: Array):
 func generate():
 	for light in sequence_lights:
 		light.generate(lever_states)
-	
+
 	emit_signal("manual_generated")
 
 func create_sequence():
 	for light in sequence_lights:
 		light.unstabilize()
-		print(light.get_current_input())
-	
+
 	emit_signal("sequence_changed", get_lights())
 
 func get_lights():

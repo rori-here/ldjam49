@@ -38,17 +38,24 @@ func get_input_length():
 	return Status.size()
 
 func generate(lever_states: Array):
+	var available_states = []
+	
+	for lever_state in lever_states:
+		available_states.append(lever_state.lever_a_id)
+		available_states.append(lever_state.lever_b_id)
+		
+	var generation_lever_states = available_states
+
 	inputs = []
+
 	for i in range(0, Status.size()):
 		randomize()
-		var index = round(rand_range(0, lever_states.size() - 1))
-		var lever_state = lever_states[index]
-		var a_or_b = round(rand_range(0, 1))
-		
-		if a_or_b == 0:
-			inputs.append(lever_state.lever_a_id)
-		else:
-			inputs.append(lever_state.lever_b_id)
+
+		var index = round(rand_range(0, generation_lever_states.size() - 1))
+		var state = generation_lever_states[index]
+		generation_lever_states.erase(state)
+
+		inputs.append(state)
 
 func unstabilize():
 	randomize()

@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://manual/ManualGenerator.tscn" type="PackedScene" id=1]
+[ext_resource path="res://manual/manual.tres" type="Resource" id=2]
+[ext_resource path="res://lights/red.tres" type="Resource" id=3]
+[ext_resource path="res://lights/green.tres" type="Resource" id=4]
+[ext_resource path="res://lights/Light.tscn" type="PackedScene" id=5]
+[ext_resource path="res://lights/blue.tres" type="Resource" id=6]
+[ext_resource path="res://sequencer/Sequencer.tscn" type="PackedScene" id=7]
+
+[node name="Test" type="Node2D"]
+
+[node name="ManualGenerator" parent="." instance=ExtResource( 1 )]
+manual_resource = ExtResource( 2 )
+
+[node name="Sequencer" parent="." instance=ExtResource( 7 )]
+
+[node name="Light" parent="." instance=ExtResource( 5 )]
+position = Vector2( 65.9475, 35.4157 )
+manual_resource = ExtResource( 2 )
+sequence_light_resource = ExtResource( 3 )
+
+[node name="Light2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 81.9475, 35.4157 )
+manual_resource = ExtResource( 2 )
+sequence_light_resource = ExtResource( 6 )
+
+[node name="Light3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 97.9475, 35.4157 )
+manual_resource = ExtResource( 2 )
+sequence_light_resource = ExtResource( 4 )
