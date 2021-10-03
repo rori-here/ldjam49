@@ -5,7 +5,10 @@ export(NodePath) var spawn_position_path
 
 var velocity: Vector2 setget ,get_velocity
 
+onready var animationPlayer = $AnimationPlayer
+
 func _ready() -> void:
+	animationPlayer.set_autoplay("SleepyEyes")
 	if (!spawn_position_path):
 		printerr("You forgot to set the spawn position node.")
 		
