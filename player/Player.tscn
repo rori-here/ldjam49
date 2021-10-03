@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://core/state_machine/state_machine.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://interaction/interact_state.gd" type="Script" id=6]
 [ext_resource path="res://player/input_rotator.gd" type="Script" id=7]
 [ext_resource path="res://player/state_machine_debugger.gd" type="Script" id=8]
+[ext_resource path="res://player/character_side.png" type="Texture" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -50,6 +51,9 @@ __meta__ = {
 texture = ExtResource( 5 )
 hframes = 8
 frame = 2
+
+[node name="SpriteSide" type="Sprite" parent="."]
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
