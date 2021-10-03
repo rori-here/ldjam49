@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.54737, 4.93664 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "A-to-N"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 21, 22, 23, 24, 25, 26, 27 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "B-to-N"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ 7, 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "N-to-A"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -55,7 +55,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 16, 17, 18, 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -102,6 +102,19 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 hframes = 2
 
+[node name="SkillCheck" type="Label" parent="LeverA"]
+margin_left = -50.1278
+margin_top = 4.01689
+margin_right = -10.1278
+margin_bottom = 18.0169
+text = "Check"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="LeverA"]
+wait_time = 0.1
+
 [node name="LeverB" type="StaticBody2D" parent="."]
 position = Vector2( -6.87219, 2.98311 )
 collision_layer = 2
@@ -132,6 +145,19 @@ texture = ExtResource( 6 )
 hframes = 2
 frame = 1
 
+[node name="Timer" type="Timer" parent="LeverB"]
+wait_time = 0.1
+
+[node name="SkillCheck" type="Label" parent="LeverB"]
+margin_left = 20.8722
+margin_top = 7.01689
+margin_right = 60.8722
+margin_bottom = 21.0169
+text = "Check"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 1 )
 position = Vector2( -24.998, 20.8811 )
@@ -146,10 +172,12 @@ visible = false
 polygon = PoolVector2Array( -2, 1, -4, 2, -4, 7, 4, 7, 4, 2, 2, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/A-to-N = SubResource( 3 )
-anims/B-to-N = SubResource( 4 )
-anims/N-to-A = SubResource( 5 )
-anims/N-to-B = SubResource( 6 )
+anims/A-to-N = SubResource( 2 )
+anims/B-to-N = SubResource( 3 )
+anims/N-to-A = SubResource( 4 )
+anims/N-to-B = SubResource( 5 )
 
 [connection signal="lever_pull" from="LeverA" to="." method="_on_LeverA_lever_pull"]
+[connection signal="timeout" from="LeverA/Timer" to="LeverA" method="_on_Timer_timeout"]
 [connection signal="lever_pull" from="LeverB" to="." method="_on_LeverB_lever_pull"]
+[connection signal="timeout" from="LeverB/Timer" to="LeverA" method="_on_Timer_timeout"]
