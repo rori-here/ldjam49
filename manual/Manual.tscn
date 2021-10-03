@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://manual/manual_interactable.gd" type="Script" id=1]
-[ext_resource path="res://assets/Action RPG Resources/World/Grass.png" type="Texture" id=2]
+[ext_resource path="res://table.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.00629, 16.2078 )
 
 [node name="Manual" type="StaticBody2D"]
 script = ExtResource( 1 )

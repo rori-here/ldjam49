@@ -248,7 +248,6 @@ manual_resource = ExtResource( 7 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 124.736, 83.8464 )
-spawn_position_path = NodePath("")
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
