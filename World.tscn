@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://lever/Lever.tscn" type="PackedScene" id=2]
@@ -10,11 +10,24 @@
 [ext_resource path="res://sequencer/input_sequence_debugger.gd" type="Script" id=8]
 [ext_resource path="res://manual/ManualUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://manual/ManualGenerator.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/DayTimer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/day_timer.gd" type="Script" id=12]
+[ext_resource path="res://manual/Meltdown.tscn" type="PackedScene" id=13]
+[ext_resource path="res://meltdown/reactor.tres" type="Resource" id=14]
+[ext_resource path="res://lights/Lights.tscn" type="PackedScene" id=15]
 
 [node name="World" type="Node2D"]
 
 [node name="ManualGenerator" parent="." instance=ExtResource( 10 )]
 manual_resource = ExtResource( 7 )
+
+[node name="Meltdown" parent="." instance=ExtResource( 13 )]
+autostart = true
+reactor_resource = ExtResource( 14 )
+
+[node name="DayTimer" parent="." instance=ExtResource( 11 )]
+autostart = true
+script = ExtResource( 12 )
 
 [node name="Sequencer" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -63,6 +76,9 @@ lever_resource = ExtResource( 6 )
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="Lamps2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 148.873, 88.3483 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

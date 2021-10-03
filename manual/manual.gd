@@ -7,7 +7,6 @@ signal sequence_changed(sequence)
 export(Array, Resource) var lever_states = []
 export(Array, Resource) var sequence_lights = []
 
-
 func generate():
 	for light in sequence_lights:
 		light.generate(lever_states)

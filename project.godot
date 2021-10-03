@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://core/movement/dash_state.gd"
 }, {
+"base": "Node",
+"class": "DayTimer",
+"language": "GDScript",
+"path": "res://levels/day_timer.gd"
+}, {
 "base": "PlayerState",
 "class": "DieState",
 "language": "GDScript",
@@ -64,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://manual/manual.gd"
 }, {
+"base": "Timer",
+"class": "Meltdown",
+"language": "GDScript",
+"path": "res://meltdown/meltdown.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -78,6 +88,11 @@ _global_script_classes=[ {
 "class": "PrintInteractable",
 "language": "GDScript",
 "path": "res://interaction/print_interactable.gd"
+}, {
+"base": "Resource",
+"class": "Reactor",
+"language": "GDScript",
+"path": "res://meltdown/reactor.gd"
 }, {
 "base": "PlayerState",
 "class": "RespawnState",
@@ -126,6 +141,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "DashState": "",
+"DayTimer": "",
 "DieState": "",
 "FallState": "",
 "IdleState": "",
@@ -136,9 +152,11 @@ _global_script_class_icons={
 "LeverInteractable": "",
 "LeverStateResource": "",
 "Manual": "",
+"Meltdown": "",
 "Player": "",
 "PlayerState": "",
 "PrintInteractable": "",
+"Reactor": "",
 "RespawnState": "",
 "SequenceDebugger": "",
 "SequenceFactory": "",
@@ -167,6 +185,29 @@ window/size/height=180
 window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": true,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input]
 

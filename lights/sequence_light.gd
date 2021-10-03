@@ -50,4 +50,5 @@ func generate(lever_states: Array):
 			inputs.append(lever_state.lever_b_id)
 
 func unstabilize():
+	randomize()
 	current_status = round(rand_range(0, Status.size() - 1))
