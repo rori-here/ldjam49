@@ -14,15 +14,16 @@
 [ext_resource path="res://manual/manual_columns.gd" type="Script" id=12]
 [ext_resource path="res://manual/manual_rows.gd" type="Script" id=13]
 
-[sub_resource type="StyleBoxEmpty" id=4]
-
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
+[sub_resource type="StyleBoxEmpty" id=4]
+
 [node name="ManualUI" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.23597
@@ -84,7 +85,7 @@ margin_left = 137.0
 margin_top = 25.0
 margin_right = 223.0
 margin_bottom = 111.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -96,7 +97,7 @@ margin_left = 26.6747
 margin_top = 25.6186
 margin_right = -59.3253
 margin_bottom = -60.3814
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -164,7 +165,7 @@ margin_left = 26.6747
 margin_top = 6.61859
 margin_right = -59.3253
 margin_bottom = -79.3814
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -210,7 +211,7 @@ margin_left = 7.67471
 margin_top = 25.6186
 margin_right = -78.3253
 margin_bottom = -60.3814
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
