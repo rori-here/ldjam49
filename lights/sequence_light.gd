@@ -1,6 +1,8 @@
 extends Resource
 class_name SequenceLight
 
+signal unstabilized(current_status)
+
 enum Hue {
 	RED
 	GREEN
@@ -37,7 +39,6 @@ func get_input_length():
 
 func generate(lever_states: Array):
 	inputs = []
-	print(lever_states)
 	for i in range(0, Status.size()):
 		randomize()
 		var index = round(rand_range(0, lever_states.size() - 1))
@@ -52,3 +53,4 @@ func generate(lever_states: Array):
 func unstabilize():
 	randomize()
 	current_status = round(rand_range(0, Status.size() - 1))
+	emit_signal("unstabilized", current_status)

@@ -78,17 +78,17 @@ lever_resource = ExtResource( 6 )
 [node name="Light" parent="." instance=ExtResource( 15 )]
 position = Vector2( 217.751, 72.8368 )
 manual_resource = ExtResource( 7 )
-light_resource = ExtResource( 16 )
+sequence_light_resource = ExtResource( 16 )
 
 [node name="Light2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 106.979, 52.3514 )
 manual_resource = ExtResource( 7 )
-light_resource = ExtResource( 17 )
+sequence_light_resource = ExtResource( 9 )
 
 [node name="Light3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 146.432, 156.296 )
 manual_resource = ExtResource( 7 )
-light_resource = ExtResource( 9 )
+sequence_light_resource = ExtResource( 17 )
 
 [node name="TooSlowTimer" type="Timer" parent="."]
 wait_time = 10.0

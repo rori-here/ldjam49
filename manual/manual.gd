@@ -5,19 +5,21 @@ signal manual_generated
 signal sequence_changed(sequence)
 
 export(Array, Resource) var lever_states = []
-export(Array, Resource) var sequence_lights = []
+var sequence_lights = []
+
+func setup(sls: Array):
+	sequence_lights = sls
 
 func generate():
 	for light in sequence_lights:
 		light.generate(lever_states)
 	
-	print("generated")
 	emit_signal("manual_generated")
 
 func create_sequence():
 	for light in sequence_lights:
 		light.unstabilize()
-		
+	
 	emit_signal("sequence_changed", get_lights())
 
 func get_lights():

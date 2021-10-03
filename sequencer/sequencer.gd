@@ -18,7 +18,7 @@ var input_sequence = []
 signal input_sequence_changed(sequence)
 
 func _ready():
-
+	yield(manual, "manual_generated")
 	reset()
 	
 func reset():
