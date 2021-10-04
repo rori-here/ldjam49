@@ -98,6 +98,20 @@ tracks/1/keys = {
 } ],
 "times": PoolRealArray( 0.5 )
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("ParticlesA")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restart"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 tracks/0/type = "value"
@@ -125,6 +139,20 @@ tracks/1/keys = {
 "stream": ExtResource( 5 )
 } ],
 "times": PoolRealArray( 0.5 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("ParticlesB")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restart"
+} ]
 }
 
 [node name="Lever" type="StaticBody2D"]
@@ -178,6 +206,7 @@ position = Vector2( -24, 21 )
 texture = ExtResource( 4 )
 offset = Vector2( 23.962, -20.9611 )
 hframes = 28
+frame = 14
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -2, 1, -6, 2, -7, 7, 7, 7, 6, 2, 2, 1 )
