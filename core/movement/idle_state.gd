@@ -10,11 +10,11 @@ func enter(dict = {}):
 	var animationPlayer = player.animationPlayer
 #
 	if animationPlayer.current_animation == "Walk_Side":
-		animationPlayer.play("Idle_Side")		
+		animationPlayer.play("Idle_Side")	
 	elif animationPlayer.current_animation == "Walk_Up":
-		animationPlayer.play("Idle_Up")		
+		animationPlayer.play("Idle_Up")
 	elif animationPlayer.current_animation == "Walk_Down":
-		animationPlayer.play("Idle_Down")		
+		animationPlayer.play("Idle_Down")	
 	
 func process(_delta: float) -> void:
 	if InputHelper.has_movement_input():

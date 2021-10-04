@@ -49,11 +49,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/jump_state.gd"
 }, {
-"base": "Node",
-"class": "LevelManager",
-"language": "GDScript",
-"path": "res://lifecycle/level_manager.gd"
-}, {
 "base": "Interactable",
 "class": "LeverInteractable",
 "language": "GDScript",
@@ -125,6 +120,11 @@ _global_script_classes=[ {
 "path": "res://sequencer/sequencer.gd"
 }, {
 "base": "Node",
+"class": "SoundManager",
+"language": "GDScript",
+"path": "res://sounds/sound_manager.gd"
+}, {
+"base": "Node",
 "class": "State",
 "language": "GDScript",
 "path": "res://core/state_machine/state.gd"
@@ -153,7 +153,6 @@ _global_script_class_icons={
 "InteractState": "",
 "Interactable": "",
 "JumpState": "",
-"LevelManager": "",
 "LeverInteractable": "",
 "LeverStateResource": "",
 "Manual": "",
@@ -168,6 +167,7 @@ _global_script_class_icons={
 "SequenceDebugger": "",
 "SequenceLight": "",
 "Sequencer": "",
+"SoundManager": "",
 "State": "",
 "StateMachine": "",
 "StateMachineDebugger": "",
@@ -178,6 +178,10 @@ _global_script_class_icons={
 
 config/name="ldjam49"
 run/main_scene="res://lifecycle/StartScreen.tscn"
+boot_splash/image="res://splash.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.435294, 0.596078, 0.976471, 1 )
 config/icon="res://icon.png"
 
 [autoload]
