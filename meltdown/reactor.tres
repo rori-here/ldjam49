@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource( 1 )
 level = 50
-background_rate = 5
 penalty = 40
 cool = 30
+stabilize_checks_required = 5
+critical_stabilize_time = 45
+warning_stabilize_time = 40
+regular_stabilize_time = 32

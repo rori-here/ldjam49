@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://manual/manual_interactable.gd" type="Script" id=1]
 [ext_resource path="res://world/table.png" type="Texture" id=2]
+[ext_resource path="res://lever/arrow.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.00629, 16.2078 )
@@ -14,3 +15,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="InteractableSprite" type="Sprite" parent="."]
+position = Vector2( 0, -28 )
+texture = ExtResource( 3 )

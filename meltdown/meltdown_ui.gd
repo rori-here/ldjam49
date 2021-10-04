@@ -9,7 +9,6 @@ onready var animation_player = $AnimationPlayer
 onready var reactor_progress = $Panel/ReactorProgress
 onready var stable_status_label = $Panel/StableStatus
 onready var stabilize_states = $Panel/StabilizeStates
-onready var stable_status_label_initial_text = stable_status_label.text
 
 func _ready():
 	stable_status_label.visible = false
@@ -35,20 +34,13 @@ func display_stabilizer_states():
 	
 func _on_stabilize(cool: int, level: int):
 	set_progress(level)
-	set_stable_status_label(cool)
 	display_stabilizer_states()
 	animation_player.play("poof")
 
 func _on_destabilize(penalty: int, level: int):
 	set_progress(level)
-	set_stable_status_label(penalty)
 	display_stabilizer_states()
 	animation_player.play("poof")
 
 func set_progress(level: int):
 	reactor_progress.value = level
-
-func set_stable_status_label(value):
-	stable_status_label.text = stable_status_label_initial_text.format({
-		"value": value
-	})

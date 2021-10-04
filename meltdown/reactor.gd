@@ -54,21 +54,23 @@ func decrease_time(new_time):
 func stabilize():
 	stabilize_checks.append(StabilizeState.STABILIZED)
 	set_level(level - cool)
-	emit_signal("stabilize", cool, level)
 	
 	if stabilize_checks.size() == stabilize_checks_required:
 		emit_signal("stabilized")
+	else:
+		emit_signal("stabilize", cool, level)
 
 func destabilize():
 	stabilize_checks.append(StabilizeState.DESTABILIZED)
 	var penalty = get_current_penalty()
 	set_level(level + penalty)
-	emit_signal("destabilize", penalty, level)
 
 	if(level == 100):
 		emit_signal("destabilized")
 	elif stabilize_checks.size() == stabilize_checks_required:
 		emit_signal("stabilized")
+	else:
+		emit_signal("destabilize", penalty, level)
 
 func get_stabilize_time():
 	match stabilize_checks.count(StabilizeState.STABILIZED):

@@ -6,6 +6,7 @@ enum SequenceState {
 	IN_PROGRESS
 	SUCCESSFUL
 }
+
 export (Resource) var reactor_resource
 onready var reactor: Reactor = reactor_resource
 
