@@ -17,7 +17,7 @@ export(NodePath) var spawn_position_path
 var dir = Direction.DOWN setget set_dir
 var velocity: Vector2 setget ,get_velocity
 
-onready var animationPlayer = $AnimationPlayer
+onready var animationPlayer = $AnimationPlayer setget ,get_animation_player
 onready var sprite = $Sprite
 
 func _ready() -> void:
@@ -27,18 +27,21 @@ func _ready() -> void:
 func get_velocity() -> Vector2:
 	return velocity
 
+func get_animation_player() -> AnimationPlayer:
+	return animationPlayer
+
 func set_dir(new_dir):
 	dir = new_dir
 	set_sprite()
 	
 func set_sprite():
 	if dir == Direction.DOWN:
-		animationPlayer.play("Idle_Down")
+		animationPlayer.play("Walk_Down")
 	elif dir == Direction.LEFT:
 		animationPlayer.play("Walk_Side")		
 		sprite.set_flip_h(true)
 	elif dir == Direction.UP:
-		animationPlayer.play("Idle_Down")
+		animationPlayer.play("Walk_Up")
 	elif dir == Direction.RIGHT:
 		animationPlayer.play("Walk_Side")
 		sprite.set_flip_h(false)

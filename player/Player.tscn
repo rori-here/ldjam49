@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://core/state_machine/state_machine.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://interaction/interact_state.gd" type="Script" id=6]
 [ext_resource path="res://player/input_rotator.gd" type="Script" id=7]
 [ext_resource path="res://player/state_machine_debugger.gd" type="Script" id=8]
+[ext_resource path="res://player/shadow.png" type="Texture" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0
@@ -47,6 +48,39 @@ tracks/0/keys = {
 "values": [ 16, 17 ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "Idle_Up"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 41, 40 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Walk_Down"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 29, 30, 31 ]
+}
+
 [sub_resource type="Animation" id=4]
 resource_name = "Walk_Side"
 length = 0.8
@@ -64,6 +98,23 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "Walk_Up"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 32, 33, 34, 35, 36, 37, 38, 39 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -79,11 +130,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 10.6066 )
+texture = ExtResource( 9 )
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )
 hframes = 8
-vframes = 3
-frame = 15
+vframes = 6
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
@@ -116,7 +171,10 @@ script = ExtResource( 7 )
 autoplay = "Idle_Down"
 anims/Idle_Down = SubResource( 2 )
 anims/Idle_Side = SubResource( 3 )
+anims/Idle_Up = SubResource( 7 )
+anims/Walk_Down = SubResource( 5 )
 anims/Walk_Side = SubResource( 4 )
+anims/Walk_Up = SubResource( 6 )
 next/Idle_Down = "SleepyEyes"
 
 [connection signal="transitioned" from="StateMachine" to="Debugging/StateMachineDebug" method="_on_StateMachine_transitioned"]
