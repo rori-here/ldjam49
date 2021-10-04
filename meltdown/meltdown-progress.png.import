@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/meltdown.png-295a86003625278cc3544952e2b50b59.stex"
+path="res://.import/meltdown-progress.png-01fc12ae9b77932cf484657f319ac565.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/meltdown.png"
-dest_files=[ "res://.import/meltdown.png-295a86003625278cc3544952e2b50b59.stex" ]
+source_file="res://meltdown/meltdown-progress.png"
+dest_files=[ "res://.import/meltdown-progress.png-01fc12ae9b77932cf484657f319ac565.stex" ]
 
 [params]
 
