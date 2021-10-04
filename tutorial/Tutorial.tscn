@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://ui/monogram-normal.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/monogram-extra-small.tres" type="DynamicFont" id=2]
 [ext_resource path="res://tutorial/tutorial_steps.gd" type="Script" id=3]
 [ext_resource path="res://manual/manual.png" type="Texture" id=4]
@@ -10,8 +9,6 @@
 [ext_resource path="res://ui/monogram-medium.tres" type="DynamicFont" id=8]
 [ext_resource path="res://tutorial/example_manual.png" type="Texture" id=9]
 
-[sub_resource type="StyleBoxEmpty" id=5]
-
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
@@ -19,6 +16,8 @@
 [sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
 
 [node name="TutorialUI" type="Control"]
 anchor_right = 1.0
@@ -43,7 +42,7 @@ margin_left = -120.0
 margin_top = -67.5
 margin_right = -120.0
 margin_bottom = -67.5
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -78,9 +77,11 @@ custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
 text = "Welcome intern,
 
-We expect our interns to perform daily tasks.... every day.
+We expect our interns to perform daily tasks to maintain our nuclear reactor. 
 
-Our 1962 nuclear reactor is a delicate piece of machinery. So don't screw up. Here is what you need to do on a daily basis.
+Our 1962 reactor is a delicate piece of machinery, so don't screw up. 
+
+Use the manual to find the lever order based on the reactor's light indicators.
 "
 autowrap = true
 __meta__ = {
@@ -98,8 +99,9 @@ margin_right = -1.52588e-05
 margin_bottom = -0.0750046
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
-text = "We have 3 (three) indicator lights that indicate a sequence. REMEMBER THIS SEQUENCE..
-We have 3 (three) different colors (red, blue and green) and 3 (three) different states (OFF, ON, BLINKING)."
+text = "The reactor has  3 indicators that together display a sequence. IMPORTANT: Remember the indicator color and state.
+
+here are 3 different colors (red, blue and green) and 3  different states (OFF, ON, BLINKING)."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,19 +125,22 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Tutorial/step1"]
-position = Vector2( 149.309, 102.322 )
+position = Vector2( 145.133, 106.767 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 hframes = 7
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="Tutorial/step1"]
-position = Vector2( 168.224, 102.322 )
+position = Vector2( 164.048, 106.767 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 hframes = 7
 frame = 4
 
 [node name="Sprite3" type="Sprite" parent="Tutorial/step1"]
-position = Vector2( 186.785, 102.146 )
+position = Vector2( 182.609, 106.591 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 hframes = 7
 frame = 6
@@ -147,15 +152,15 @@ anchor_right = 0.946
 anchor_bottom = 0.934
 margin_top = -0.00500488
 margin_bottom = 0.034996
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
 custom_colors/font_color_hover = Color( 0.941176, 0.309804, 0.470588, 1 )
 custom_colors/font_color_pressed = Color( 0.941176, 0.309804, 0.470588, 1 )
-text = "Enter to continue"
+text = "enter/space to continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -167,7 +172,7 @@ margin_left = -120.0
 margin_top = -67.5
 margin_right = -120.0
 margin_bottom = -67.5
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -200,9 +205,9 @@ margin_right = -1.52588e-05
 margin_bottom = -0.0750046
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
-text = "We have several levers that correspond with a character. Turn the levers in order of the sequence!
+text = "The levers have to be pulled to the correct character while matching the sequence.
 
-Make sure to reset a lever, before setting it."
+IMPORTANT: Be sure to set the lever to neutral in order to register the character for the sequence."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -236,8 +241,9 @@ margin_right = -116.496
 margin_bottom = -0.0750046
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
-text = "Check the manual on the table. LEAVE IT WHERE IT IS. You are only provided with one.
-Read it correctly. Crossreferencing the color and the state of the light will reveal a character (A, B, C or D)"
+text = "The manual in the reactor room helps you find out the lever necessary to stabilize the reactor. Important: this is our last copy
+
+Cross-reference the color and the state of the indicators and remember the corresponding characters."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -276,29 +282,32 @@ anchor_left = 0.575
 anchor_top = 0.838
 anchor_right = 0.946
 anchor_bottom = 0.934
-margin_top = -0.00500488
-margin_bottom = 0.034996
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = ExtResource( 1 )
+margin_left = 0.133026
+margin_top = 0.461029
+margin_right = 0.133026
+margin_bottom = 0.50103
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
 custom_colors/font_color_hover = Color( 0.941176, 0.309804, 0.470588, 1 )
 custom_colors/font_color_pressed = Color( 0.941176, 0.309804, 0.470588, 1 )
-text = "Enter to continue"
+text = "enter/space to continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="step3" type="Panel" parent="Tutorial"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -120.0
 margin_top = -67.5
 margin_right = -120.0
 margin_bottom = -67.5
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -325,15 +334,15 @@ anchor_left = 0.587
 anchor_top = 0.305
 anchor_right = 0.9
 anchor_bottom = 0.845
-margin_left = 0.119995
-margin_top = -1.175
-margin_right = -1.52588e-05
-margin_bottom = -0.0750046
+margin_left = 0.253021
+margin_top = -1.58397
+margin_right = 0.133011
+margin_bottom = -0.483978
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
-text = "If you do manage to fail the sequences (or fall asleep during the workday), we are entering meltdown-protocol.
+text = "If you do manage to fail the sequences (or fall asleep during the work day), the nuclear plant will enter a meltdown-protocol.
 
-Which basically just erases all evidence showing we let interns handle these tasks, and would definitely NOT help you survive."
+This protocol erases all evidence showing interns handled these tasks. You will also definetely not survive this incident."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -367,11 +376,10 @@ margin_right = -116.496
 margin_bottom = -0.0750046
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
-text = "Prevent meltdown at all cost!
+text = "Prevent a meltdown at all cost!
 
-Finish a sufficient amount of correct sequences to prevent the reactor from melting down.
-
-The reactor will respond to incorrect sequences. The old beast doesn't like it."
+1. Do not make mistakes, this will destabilize the reactor, resulting in a meltdown.
+2. Do not linger around, the reactor needs regular  stabilization."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -403,15 +411,15 @@ margin_left = -1.52588e-05
 margin_top = -0.130005
 margin_right = -0.0400085
 margin_bottom = -0.090004
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
 custom_colors/font_color_hover = Color( 0.941176, 0.309804, 0.470588, 1 )
 custom_colors/font_color_pressed = Color( 0.941176, 0.309804, 0.470588, 1 )
-text = "Enter to start workday :)"
+text = "enter/space to start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
