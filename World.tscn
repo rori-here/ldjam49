@@ -40,9 +40,9 @@ reactor_resource = ExtResource( 14 )
 reactor_resource = ExtResource( 14 )
 
 [node name="DayUI" parent="CanvasLayer" instance=ExtResource( 19 )]
-anchor_top = 0.0
+anchor_top = -0.0148148
 anchor_right = 0.0
-anchor_bottom = 0.0
+anchor_bottom = 0.00740741
 margin_top = 122.0
 margin_right = 240.0
 margin_bottom = 135.0
@@ -76,34 +76,35 @@ format = 1
 tile_data = PoolIntArray( 196618, 2, 0, 196619, 2, 0, 196620, 2, 0, 262153, 2, 65536, 262154, 2, 0, 262155, 2, 0, 262156, 2, 1, 262157, 2, 0, 327689, 2, 0, 327690, 2, 0, 327691, 2, 65537, 327692, 2, 0, 327693, 2, 0, 393226, 2, 65536, 393227, 2, 0, 393228, 2, 0 )
 
 [node name="Manual" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 8, 88 )
+position = Vector2( 0, 112 )
 collision_layer = 3
 collision_mask = 0
 manual_resource = ExtResource( 7 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 124.736, 83.8464 )
+position = Vector2( 24, 112 )
+spawn_position_path = NodePath("../../SpawnPosition")
 
 [node name="PlayerCamera" parent="YSort/Player" instance=ExtResource( 23 )]
 reactor_resource = ExtResource( 14 )
 
 [node name="LeverAB" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 183.875, 120.75 )
+position = Vector2( 184, 120 )
 sequencer_node_path = NodePath("../../Sequencer")
 lever_resource = ExtResource( 5 )
 
 [node name="LeverXY" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 183.375, 41.125 )
+position = Vector2( 184, 24 )
 sequencer_node_path = NodePath("../../Sequencer")
 lever_resource = ExtResource( 6 )
 
 [node name="Light" parent="YSort" instance=ExtResource( 15 )]
-position = Vector2( 248, 80 )
+position = Vector2( 224, 16 )
 manual_resource = ExtResource( 7 )
 sequence_light_resource = ExtResource( 16 )
 
 [node name="Light2" parent="YSort" instance=ExtResource( 15 )]
-position = Vector2( 264, 80 )
+position = Vector2( 104, 104 )
 manual_resource = ExtResource( 7 )
 sequence_light_resource = ExtResource( 9 )
 
@@ -111,3 +112,6 @@ sequence_light_resource = ExtResource( 9 )
 position = Vector2( 280, 80 )
 manual_resource = ExtResource( 7 )
 sequence_light_resource = ExtResource( 17 )
+
+[node name="SpawnPosition" type="Position2D" parent="."]
+position = Vector2( 24, 128 )
