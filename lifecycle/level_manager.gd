@@ -1,30 +1,28 @@
 extends Node
 class_name LevelManager
 
-export (Resource) var day_resource
-onready var day: Day = day_resource
-
 export (Resource) var reactor_resource
 onready var reactor: Reactor = reactor_resource
 
 onready var meltdown_idle_timer = $MeltdownIdleTimer
-onready var day_over_idle_timer = $DayOverIdleTimer
+onready var stabilized_idle_timer = $StabilizedIdleTimer
 
 func _ready():
-	day.connect("day_cleared", self, "_on_day_cleared")
-	reactor.connect("meltdown", self, "_on_meltdown")
+	reactor.connect("stabilized", self, "_on_stabilized")
+	reactor.connect("destabilized", self, "_on_destabilized")
 
 	meltdown_idle_timer.connect("timeout", self, "_on_meltdown_idle_timeout")
-	day_over_idle_timer.connect("timeout", self, "_on_day_over_idle_timeout")
+	stabilized_idle_timer.connect("timeout", self, "_on_stabilized_idle_timeout")
 
-func _on_day_over_idle_timeout():
+func _on_stabilized_idle_timeout():
 	get_tree().change_scene("res://lifecycle/DayClearedScreen.tscn")
 	
 func _on_meltdown_idle_timeout():
 	get_tree().change_scene("res://lifecycle/MeltdownScreen.tscn")
 
-func _on_day_cleared():
-	day_over_idle_timer.start()
+func _on_stabilized():
+	print("hello")
+	stabilized_idle_timer.start()
 	
-func _on_meltdown(_level: int):
+func _on_destabilized():
 	meltdown_idle_timer.start()

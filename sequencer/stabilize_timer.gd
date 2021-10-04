@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Timer
 
 
 # Declare member variables here. Examples:

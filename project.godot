@@ -14,16 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://core/movement/dash_state.gd"
 }, {
-"base": "Resource",
-"class": "Day",
-"language": "GDScript",
-"path": "res://levels/day.gd"
-}, {
-"base": "Timer",
-"class": "DayTimer",
-"language": "GDScript",
-"path": "res://levels/day_timer.gd"
-}, {
 "base": "PlayerState",
 "class": "DieState",
 "language": "GDScript",
@@ -78,11 +68,6 @@ _global_script_classes=[ {
 "class": "ManualInteractable",
 "language": "GDScript",
 "path": "res://manual/manual_interactable.gd"
-}, {
-"base": "Timer",
-"class": "Meltdown",
-"language": "GDScript",
-"path": "res://meltdown/meltdown.gd"
 }, {
 "base": "Control",
 "class": "MeltdownUI",
@@ -156,8 +141,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "DashState": "",
-"Day": "",
-"DayTimer": "",
 "DieState": "",
 "FallState": "",
 "IdleState": "",
@@ -169,7 +152,6 @@ _global_script_class_icons={
 "LeverStateResource": "",
 "Manual": "",
 "ManualInteractable": "",
-"Meltdown": "",
 "MeltdownUI": "",
 "PlayScreen": "",
 "Player": "",

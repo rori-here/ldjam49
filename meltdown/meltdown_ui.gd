@@ -13,22 +13,23 @@ onready var cool_label_initial_text = cool_label.text
 func _ready():
 	melt_label.visible = false
 	cool_label.visible = false
-	reactor.connect("cooled", self, "_on_cooled")
-	reactor.connect("heated", self, "_on_heated")
-	reactor.connect("melted", self, "_on_melted")
+	reactor.connect("stabilize", self, "_on_stabilize")
+	reactor.connect("destabilize", self, "_on_destabilize")
+	reactor.connect("destabilized", self, "_on_destabilized")
 	set_progress(reactor.level)
 
-func _on_cooled(cool: int, level: int):
+func _on_stabilize(cool: int, level: int):
 	set_progress(level)
 	set_cool(cool)
 	animation_player.play("cool")
 
-func _on_heated(heat: int, level: int):
+func _on_destabilize(heat: int, level: int):
+	print("fuck")
 	set_progress(level)
 	set_heat(heat)
 	animation_player.play("heat")
 	
-func _on_melted(_rate: int, level: int):
+func _on_destabilized(_rate: int, level: int):
 	set_progress(level)
 
 func set_progress(level: int):

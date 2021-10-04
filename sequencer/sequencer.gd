@@ -12,7 +12,7 @@ onready var reactor: Reactor = reactor_resource
 export (Resource) var manual_resource
 onready var manual: Manual = manual_resource
 
-onready var sequence_timer = $SequenceTimer
+onready var stabilize_timer: Timer = $StabilizeTimer
 
 var input_sequence = []
 
@@ -20,14 +20,22 @@ signal input_sequence_changed(sequence)
 
 func _ready():
 	yield(manual, "manual_generated")
-	sequence_timer.connect("timeout", self, "_on_SequenceTimer_timeout")
+	reactor.connect("stabilize", self, "_on_stabilize")
+	reactor.connect("destabilize", self, "_on_destabilize")
+	reactor.connect("stabilized", self, "_on_stabilized")
+	reactor.connect("destabilized", self, "_on_destabilized")
+
+	stabilize_timer.connect("timeout", self, "_on_timeout")
+
 	reset()
 
 func reset():
 	input_sequence = []
 	manual.create_sequence()
 	emit_signal("input_sequence_changed", input_sequence)
-	sequence_timer.start()
+	reactor.reset_time()
+	print("start again")
+	stabilize_timer.start()
 
 func add_to_sequence(value: String):
 	input_sequence.append(value)
@@ -58,14 +66,27 @@ func is_sequence_match():
 	else:
 		return SequenceState.IN_PROGRESS
 
-func _on_SequenceTimer_timeout():
-	reactor.heat()
-	reset()
-	
-func _on_successful():
-	reactor.cool()
+func _on_timeout():
+	reactor.decrease_time(stabilize_timer.wait_time)
+
+func _on_destabilized():
+	reactor.set_time(0)
+	stabilize_timer.stop()
+
+func _on_destabilize(_a, _b):
+	stabilize_timer.stop()
 	reset()
 
-func _on_failed():
-	reactor.heat()
+func _on_stabilized():
+	reactor.set_time(0)
+	stabilize_timer.stop()
+
+func _on_stabilize(_a, _b):
+	stabilize_timer.stop()
 	reset()
+
+func _on_successful():
+	reactor.stabilize()
+
+func _on_failed():
+	reactor.destabilize()

@@ -46,13 +46,13 @@ func _on_camera_shake():
 func connect_to_timer():
 	shake_timer.connect("timeout", self, "_on_shake_timer_timeout")
 
-func _on_reactor_heat(_heat, _level):
+func _on_destabilize(_heat, _level):
 	_on_camera_shake()
 	
-func _on_reactor_meltdown(_level):
+func _on_destabilized(_level):
 	set_duration(initial_duration * 4)
 	_on_camera_shake()
 
 func connect_to_reactor():
-	reactor.connect("heated", self, "_on_reactor_heat")
-	reactor.connect("meltdown", self, "_on_reactor_meltdown")
+	reactor.connect("destabilize", self, "_on_destabilize")
+	reactor.connect("destabilized", self, "_on_destabilized")
