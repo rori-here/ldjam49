@@ -3,8 +3,7 @@ class_name MeltdownUI
 
 export (Resource) var reactor_resource
 onready var reactor: Reactor = reactor_resource
-onready var reactor_label = $ReactorLabel
-onready var reactor_label_initial_text = $ReactorLabel.text
+onready var reactor_progress = $Panel/ReactorProgress
 
 func _ready():
 	reactor.connect("cooled", self, "_on_cooled")
@@ -22,6 +21,4 @@ func _on_melted(_rate: int, level: int):
 	set_text(level)
 	
 func set_text(level: int):
-	 reactor_label.text = reactor_label_initial_text.format({
-		"level": level
-	})
+	reactor_progress.value = level

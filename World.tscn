@@ -269,6 +269,9 @@ reactor_resource = ExtResource( 14 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="MeltdownUI" parent="CanvasLayer" instance=ExtResource( 18 )]
+reactor_resource = ExtResource( 14 )
+
 [node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer"]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -281,17 +284,9 @@ __meta__ = {
 [node name="DayUI" parent="CanvasLayer/HSplitContainer" instance=ExtResource( 19 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 54.0
-margin_bottom = 13.0
-day_resource = ExtResource( 21 )
-
-[node name="MeltdownUI" parent="CanvasLayer/HSplitContainer" instance=ExtResource( 18 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 66.0
 margin_right = 240.0
 margin_bottom = 13.0
-reactor_resource = ExtResource( 14 )
+day_resource = ExtResource( 21 )
 
 [node name="ManualUI" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
