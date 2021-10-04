@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://lifecycle/level_manager.gd" type="Script" id=1]
+[ext_resource path="res://levels/day.tres" type="Resource" id=2]
+[ext_resource path="res://meltdown/reactor.tres" type="Resource" id=3]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource( 1 )
+day_resource = ExtResource( 2 )
+reactor_resource = ExtResource( 3 )
+
+[node name="MeltdownIdleTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="DayOverIdleTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

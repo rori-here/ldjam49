@@ -3,9 +3,11 @@ extends Camera2D
 onready var shake_timer: Timer = $ShakeTimer
 
 export var amplitude := 6.0
-export var duration = 0.8 setget set_duration
+export var initial_duration = 0.8 
 export(float, EASE) var DAMP_EASING := 1.0
 export var shake := false setget set_shake
+
+var duration = initial_duration setget set_duration
 	
 export (Resource) var reactor_resource
 onready var reactor: Reactor = reactor_resource
@@ -36,6 +38,7 @@ func set_shake(value: bool):
 
 func _on_shake_timer_timeout():
 	self.shake = false
+	set_duration(initial_duration)
 
 func _on_camera_shake():
 	self.shake = true
@@ -47,9 +50,9 @@ func _on_reactor_heat(_heat, _level):
 	_on_camera_shake()
 	
 func _on_reactor_meltdown(_level):
+	set_duration(initial_duration * 4)
 	_on_camera_shake()
 
 func connect_to_reactor():
 	reactor.connect("heated", self, "_on_reactor_heat")
 	reactor.connect("meltdown", self, "_on_reactor_meltdown")
-	
