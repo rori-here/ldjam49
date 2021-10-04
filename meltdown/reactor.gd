@@ -15,10 +15,15 @@ enum StabilizeState {
 }
 
 export(int, 0, 100) var level = 50
-export(int, 0, 25) var penalty = 10
-export(int, 0, 25) var cool = 20
+
+export(int, 0, 50) var penalty = 30
+
+export(int, 0, 50) var cool = 20
+
 export(int, 1, 5) var stabilize_checks_required = 5
-export(int, 1, 60) var stabilize_time = 30
+export(int, 1, 60) var critical_stabilize_time = 45
+export(int, 0, 60) var warning_stabilize_time = 40
+export(int, 0, 60) var regular_stabilize_time = 32
 
 var time = 0
 
@@ -34,10 +39,10 @@ func set_level(new_level: int):
 	level = clamp(new_level, 0, 100)
 
 func reset_time():
-	set_time(stabilize_time)
+	set_time(get_stabilize_time())
 
 func set_time(new_time):
-	time = clamp(new_time, 0, stabilize_time)
+	time = clamp(new_time, 0, get_stabilize_time())
 	emit_signal("reactor_tick", time)
 
 func decrease_time(new_time):
@@ -56,6 +61,7 @@ func stabilize():
 
 func destabilize():
 	stabilize_checks.append(StabilizeState.DESTABILIZED)
+	var penalty = get_current_penalty()
 	set_level(level + penalty)
 	emit_signal("destabilize", penalty, level)
 
@@ -63,6 +69,13 @@ func destabilize():
 		emit_signal("destabilized")
 	elif stabilize_checks.size() == stabilize_checks_required:
 		emit_signal("stabilized")
+
+func get_stabilize_time():
+	match stabilize_checks.count(StabilizeState.STABILIZED):
+		2: return regular_stabilize_time
+		1: return warning_stabilize_time
+		0: return critical_stabilize_time
+		_: return regular_stabilize_time
 
 func get_current_level():
 	return level
