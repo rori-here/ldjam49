@@ -21,6 +21,7 @@ func _on_Escape_pressed():
 	close()
 
 func close():
-	manual.close_manual()
-	audioListener.play(0.0)	
-	self.hide()
+	if self.is_visible():
+		manual.close_manual()
+		audioListener.play(0.0)	
+		self.hide()
