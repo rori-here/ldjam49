@@ -34,7 +34,6 @@ func reset():
 	manual.create_sequence()
 	emit_signal("input_sequence_changed", input_sequence)
 	reactor.reset_time()
-	print("start again")
 	stabilize_timer.start()
 
 func add_to_sequence(value: String):

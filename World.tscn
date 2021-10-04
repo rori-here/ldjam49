@@ -16,7 +16,7 @@
 [ext_resource path="res://lights/red.tres" type="Resource" id=16]
 [ext_resource path="res://lights/green.tres" type="Resource" id=17]
 [ext_resource path="res://meltdown/MeltdownUI.tscn" type="PackedScene" id=18]
-[ext_resource path="res://levels/StabilizeUI.tscn" type="PackedScene" id=19]
+[ext_resource path="res://levels/StabilizeTimerUI.tscn" type="PackedScene" id=19]
 [ext_resource path="res://lifecycle/LevelManager.tscn" type="PackedScene" id=20]
 [ext_resource path="res://player/PlayerCamera.tscn" type="PackedScene" id=23]
 
@@ -33,13 +33,20 @@ reactor_resource = ExtResource( 14 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MeltdownUI" parent="CanvasLayer" instance=ExtResource( 18 )]
-reactor_resource = ExtResource( 14 )
-
 [node name="ManualUI" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
 
+[node name="MeltdownUI" parent="CanvasLayer" instance=ExtResource( 18 )]
+anchor_right = 0.0
+margin_left = 32.0
+margin_right = 32.0
+margin_bottom = 16.0
+reactor_resource = ExtResource( 14 )
+
 [node name="StabilizeUI" parent="CanvasLayer" instance=ExtResource( 19 )]
+anchor_right = 0.0
+margin_left = 192.0
+margin_right = 232.0
 reactor_resource = ExtResource( 14 )
 
 [node name="YSort" type="YSort" parent="."]

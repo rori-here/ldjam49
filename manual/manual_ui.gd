@@ -15,8 +15,6 @@ func _on_manual_changed():
 		remove_child(obj)
 		obj.queue_free()
 	
-	print(manual.get_lights())
-	
 	for entry in manual.get_lights():
 		var light = entry
 		for _i in light.get_input_length(): 

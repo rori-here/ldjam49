@@ -9,7 +9,7 @@ onready var stabilize_label_initial_text = stabilize_label.text
 func _ready():
 	set_text(reactor.get_time())
 	reactor.connect("reactor_tick", self, "_on_reactor_tick")
-	
+
 func _on_reactor_tick(time: int):
 	set_text(time)
 	

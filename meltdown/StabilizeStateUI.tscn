@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://meltdown/stabilize-lights-off.png" type="Texture" id=1]
+[ext_resource path="res://meltdown/stabilize_state_ui.gd" type="Script" id=2]
+[ext_resource path="res://meltdown/stabilize-lights-stabilized.png" type="Texture" id=3]
+[ext_resource path="res://meltdown/stabilize-lights-destabilized.png" type="Texture" id=4]
+
+[node name="StabilizeState" type="TextureRect"]
+margin_right = 4.0
+margin_bottom = 4.0
+rect_min_size = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+neutral_texture = ExtResource( 1 )
+destabilized_texture = ExtResource( 4 )
+stabilized_texture = ExtResource( 3 )

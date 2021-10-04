@@ -21,7 +21,6 @@ func _on_meltdown_idle_timeout():
 	get_tree().change_scene("res://lifecycle/MeltdownScreen.tscn")
 
 func _on_stabilized():
-	print("hello")
 	stabilized_idle_timer.start()
 	
 func _on_destabilized():

@@ -73,3 +73,10 @@ func get_current_penalty():
 func get_time():
 	return time
 
+func get_stabilize_check_state(index: int):
+	if stabilize_checks.size() != 0 && stabilize_checks.size() > index:
+		return stabilize_checks[index]
+	
+	return StabilizeState.NEUTRAL
+	
+

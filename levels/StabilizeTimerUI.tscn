@@ -1,14 +1,12 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ui/monogram-normal.tres" type="DynamicFont" id=1]
-[ext_resource path="res://levels/stabilize_ui.gd" type="Script" id=2]
+[ext_resource path="res://levels/stabilize_timer_ui.gd" type="Script" id=2]
 [ext_resource path="res://ui/timer.png" type="Texture" id=8]
 
-[node name="StabilizeUI" type="CenterContainer"]
-anchor_top = 1.0
+[node name="StabilizeTimerUI" type="CenterContainer"]
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -16.0
+margin_bottom = 16.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -19,15 +17,13 @@ margin_left = 100.0
 margin_right = 140.0
 margin_bottom = 16.0
 texture = ExtResource( 8 )
+flip_v = true
 
 [node name="StabilizeLabel" type="Label" parent="Panel"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -11.6978
-margin_top = -12.2766
-margin_right = 12.3022
-margin_bottom = 0.723434
+margin_left = -3.0
+margin_top = 1.40117
+margin_right = 42.0
+margin_bottom = 11.4012
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.941176, 0.309804, 0.470588, 1 )
 text = "{mm}:{ss}"

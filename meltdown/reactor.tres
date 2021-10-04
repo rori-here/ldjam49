@@ -8,4 +8,4 @@ level = 50
 penalty = 5
 cool = 20
 stabilize_checks_required = 2
-stabilize_time = 60
+stabilize_time = 3
