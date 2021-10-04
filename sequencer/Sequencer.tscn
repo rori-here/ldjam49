@@ -6,3 +6,7 @@
 [node name="Sequencer" type="Node"]
 script = ExtResource( 1 )
 manual_resource = ExtResource( 2 )
+
+[node name="SequenceTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true

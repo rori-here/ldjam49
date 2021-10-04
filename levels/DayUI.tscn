@@ -1,20 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://ui/monogram-medium.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/monogram-normal.tres" type="DynamicFont" id=1]
 [ext_resource path="res://levels/day_ui.gd" type="Script" id=2]
+[ext_resource path="res://ui/timer.png" type="Texture" id=8]
 
 [node name="DayUI" type="CenterContainer"]
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -16.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DayLabel" type="Label" parent="."]
-margin_left = 133.0
-margin_top = 83.0
-margin_right = 187.0
-margin_bottom = 96.0
+[node name="Panel" type="TextureRect" parent="."]
+margin_left = 100.0
+margin_right = 140.0
+margin_bottom = 16.0
+texture = ExtResource( 8 )
+
+[node name="DayLabel" type="Label" parent="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -11.6978
+margin_top = -12.2766
+margin_right = 12.3022
+margin_bottom = 0.723434
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.941176, 0.309804, 0.470588, 1 )
 text = "{mm}:{ss}"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

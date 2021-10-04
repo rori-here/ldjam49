@@ -11,7 +11,7 @@
 [ext_resource path="res://player/shadow.png" type="Texture" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 3.0
+radius = 5.0
 height = 4.0
 
 [sub_resource type="Animation" id=2]
@@ -48,7 +48,7 @@ tracks/0/keys = {
 "values": [ 16, 17 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "Idle_Up"
 loop = true
 tracks/0/type = "value"
@@ -81,8 +81,7 @@ tracks/0/keys = {
 "values": [ 24, 25, 26, 27, 28, 29, 30, 31 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Walk_Side"
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -98,8 +97,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Walk_Up"
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -142,7 +140,6 @@ frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
-rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node2D" parent="."]
@@ -151,6 +148,7 @@ script = ExtResource( 2 )
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 player_node = NodePath("../..")
+friction = 0.2
 
 [node name="WalkState" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
@@ -171,10 +169,10 @@ script = ExtResource( 7 )
 autoplay = "Idle_Down"
 anims/Idle_Down = SubResource( 2 )
 anims/Idle_Side = SubResource( 3 )
-anims/Idle_Up = SubResource( 7 )
+anims/Idle_Up = SubResource( 4 )
 anims/Walk_Down = SubResource( 5 )
-anims/Walk_Side = SubResource( 4 )
-anims/Walk_Up = SubResource( 6 )
+anims/Walk_Side = SubResource( 6 )
+anims/Walk_Up = SubResource( 7 )
 next/Idle_Down = "SleepyEyes"
 
 [connection signal="transitioned" from="StateMachine" to="Debugging/StateMachineDebug" method="_on_StateMachine_transitioned"]

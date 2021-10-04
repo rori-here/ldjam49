@@ -8,7 +8,7 @@
 [ext_resource path="res://lever/arrow.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.54737, 4.93664 )
+extents = Vector2( 3.54737, 8 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "A-to-N"
@@ -73,13 +73,13 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="LeverA" type="StaticBody2D" parent="."]
-position = Vector2( -6.87219, 2.98311 )
+position = Vector2( -7, 3 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverA"]
-position = Vector2( 2.87219, -0.98311 )
+position = Vector2( 2, -4 )
 shape = SubResource( 1 )
 
 [node name="InteractableSprite" type="Sprite" parent="LeverA"]
@@ -87,13 +87,13 @@ position = Vector2( 6.90512, -17.3262 )
 texture = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="LeverA"]
-position = Vector2( -4.12781, 3.01689 )
+position = Vector2( -4, 3 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 hframes = 2
 
 [node name="LeverB" type="StaticBody2D" parent="."]
-position = Vector2( -6.87219, 2.98311 )
+position = Vector2( -7, 3 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
@@ -103,11 +103,12 @@ position = Vector2( 6.90512, -17.3262 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverB"]
-position = Vector2( 11.8722, -0.98311 )
+position = Vector2( 12, -4 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="LeverB"]
-position = Vector2( 18.8722, 3.01689 )
+material = ExtResource( 1 )
+position = Vector2( 18, 3 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 hframes = 2
@@ -115,16 +116,14 @@ frame = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 1 )
-position = Vector2( -24.998, 20.8811 )
-scale = Vector2( 1.0637, 0.997238 )
+position = Vector2( -24, 21 )
 texture = ExtResource( 4 )
 offset = Vector2( 23.962, -20.9611 )
 hframes = 28
 frame = 14
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PoolVector2Array( -2, 1, -4, 2, -4, 7, 4, 7, 4, 2, 2, 1 )
+polygon = PoolVector2Array( -2, 1, -6, 2, -7, 7, 7, 7, 6, 2, 2, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/A-to-N = SubResource( 2 )
