@@ -16,6 +16,8 @@ func enter(dict = {}):
 	elif animationPlayer.current_animation == "Walk_Down":
 		animationPlayer.play("Idle_Down")	
 	
+	player.particleEmitter.emitting = false
+	
 func process(_delta: float) -> void:
 	if InputHelper.has_movement_input():
 		get_state_machine().transition("WalkState")

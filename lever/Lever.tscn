@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://shaders/outline-shader.tres" type="Material" id=1]
 [ext_resource path="res://lever/lever_interactable.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sounds/lever.wav" type="AudioStream" id=5]
 [ext_resource path="res://lever/ab.png" type="Texture" id=6]
 [ext_resource path="res://lever/arrow.png" type="Texture" id=7]
+[ext_resource path="res://lever/lightningr.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.54737, 8 )
@@ -97,6 +98,20 @@ tracks/1/keys = {
 } ],
 "times": PoolRealArray( 0.5 )
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("ParticlesA")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restart"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 tracks/0/type = "value"
@@ -124,6 +139,20 @@ tracks/1/keys = {
 "stream": ExtResource( 5 )
 } ],
 "times": PoolRealArray( 0.5 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("ParticlesB")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restart"
+} ]
 }
 
 [node name="Lever" type="StaticBody2D"]
@@ -189,6 +218,40 @@ anims/N-to-B = SubResource( 5 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="ParticlesA" type="CPUParticles2D" parent="."]
+position = Vector2( -14.8934, 5.65686 )
+emitting = false
+lifetime = 0.8
+one_shot = true
+texture = ExtResource( 8 )
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector2( 0, 1 )
+gravity = Vector2( 0, 4 )
+initial_velocity = 1.0
+angle = 263.3
+angle_random = 0.5
+scale_amount = 0.3
+color = Color( 0.921569, 1, 0, 1 )
+hue_variation = -0.11
+
+[node name="ParticlesB" type="CPUParticles2D" parent="."]
+position = Vector2( 15.0702, 5.65686 )
+emitting = false
+lifetime = 0.8
+one_shot = true
+texture = ExtResource( 8 )
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector2( 0, 1 )
+gravity = Vector2( 0, 4 )
+initial_velocity = 1.0
+angle = 263.3
+angle_random = 0.5
+scale_amount = 0.3
+color = Color( 0.921569, 1, 0, 1 )
+hue_variation = -0.11
 
 [connection signal="lever_pull" from="LeverA" to="." method="_on_LeverA_lever_pull"]
 [connection signal="lever_pull" from="LeverB" to="." method="_on_LeverB_lever_pull"]

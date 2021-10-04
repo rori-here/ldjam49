@@ -175,6 +175,19 @@ anims/Walk_Side = SubResource( 6 )
 anims/Walk_Up = SubResource( 7 )
 next/Idle_Down = "SleepyEyes"
 
+[node name="Particle" type="CPUParticles2D" parent="."]
+position = Vector2( 0, 15.8125 )
+amount = 3
+lifetime = 0.5
+local_coords = false
+direction = Vector2( 0, 1 )
+gravity = Vector2( 0, 1 )
+initial_velocity = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 5.0
+color = Color( 1, 1, 1, 0.101961 )
+
 [connection signal="transitioned" from="StateMachine" to="Debugging/StateMachineDebug" method="_on_StateMachine_transitioned"]
 [connection signal="transitioned" from="StateMachine" to="StateMachine/InteractState/CollisionShape2D" method="_on_StateMachine_transitioned"]
 [connection signal="body_entered" from="StateMachine/InteractState" to="StateMachine/InteractState" method="_on_InteractState_body_entered"]

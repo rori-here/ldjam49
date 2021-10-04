@@ -4,6 +4,12 @@ class_name WalkState
 export var speed = 75
 export var acceleration = 1
 
+
+func enter(dict = {}):
+	var player = get_player()	
+	
+	player.particleEmitter.emitting = true
+	
 func process(_delta: float) -> void:
 	if !InputHelper.has_movement_input():
 		get_state_machine().transition("IdleState")

@@ -20,6 +20,8 @@ var velocity: Vector2 setget ,get_velocity
 onready var animationPlayer = $AnimationPlayer setget ,get_animation_player
 onready var sprite = $Sprite
 
+onready var particleEmitter = $Particle setget ,get_particles_player
+
 func _ready() -> void:
 	if (!spawn_position_path):
 		printerr("You forgot to set the spawn position node.")
@@ -29,6 +31,9 @@ func get_velocity() -> Vector2:
 
 func get_animation_player() -> AnimationPlayer:
 	return animationPlayer
+
+func get_particles_player() -> CPUParticles2D:
+	return particleEmitter
 
 func set_dir(new_dir):
 	dir = new_dir
