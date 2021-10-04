@@ -99,7 +99,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=13]
+=======
 [sub_resource type="TileSet" id=21]
+>>>>>>> 2bec32c53b942bcd83a05e47fe38487b4b98fdc6
 0/name = "floors.png 0"
 0/texture = ExtResource( 8 )
 0/tex_offset = Vector2( 0, 0 )

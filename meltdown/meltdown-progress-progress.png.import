@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/meltdown_icon.png-0f91bea94ff82b51346925584e4b8a86.stex"
+path="res://.import/meltdown-progress-progress.png-7e50753263a26ca7aac95f51d54d6e41.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://meltdown_icon.png"
-dest_files=[ "res://.import/meltdown_icon.png-0f91bea94ff82b51346925584e4b8a86.stex" ]
+source_file="res://meltdown/meltdown-progress-progress.png"
+dest_files=[ "res://.import/meltdown-progress-progress.png-7e50753263a26ca7aac95f51d54d6e41.stex" ]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/normal_map=0
 flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
-flags/anisotropic=false
+flags/anisotropic=true
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
