@@ -327,7 +327,7 @@ position = Vector2( 124.736, 83.8464 )
 reactor_resource = ExtResource( 14 )
 
 [node name="LeverAB" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 184, 104 )
+position = Vector2( 184, 103.875 )
 sequencer_node_path = NodePath("../../Sequencer")
 lever_resource = ExtResource( 5 )
 

@@ -4,8 +4,8 @@
 [ext_resource path="res://lever/lever_interactable.gd" type="Script" id=2]
 [ext_resource path="res://lever/lever.gd" type="Script" id=3]
 [ext_resource path="res://lever/lever.png" type="Texture" id=4]
-[ext_resource path="res://ui/monogram-medium.tres" type="DynamicFont" id=5]
 [ext_resource path="res://lever/ab.png" type="Texture" id=6]
+[ext_resource path="res://lever/arrow.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.54737, 4.93664 )
@@ -82,19 +82,9 @@ script = ExtResource( 2 )
 position = Vector2( 2.87219, -0.98311 )
 shape = SubResource( 1 )
 
-[node name="Interactable" type="Label" parent="LeverA"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.87219
-margin_top = -22.9831
-margin_right = 10.8722
-margin_bottom = -9.98311
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "F"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="InteractableSprite" type="Sprite" parent="LeverA"]
+position = Vector2( 6.90512, -17.3262 )
+texture = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="LeverA"]
 position = Vector2( -4.12781, 3.01689 )
@@ -108,22 +98,13 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
 
+[node name="InteractableSprite" type="Sprite" parent="LeverB"]
+position = Vector2( 6.90512, -17.3262 )
+texture = ExtResource( 7 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeverB"]
 position = Vector2( 11.8722, -0.98311 )
 shape = SubResource( 1 )
-
-[node name="Interactable" type="Label" parent="LeverB"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.87219
-margin_top = -22.9831
-margin_right = 10.8722
-margin_bottom = -9.98311
-custom_fonts/font = ExtResource( 5 )
-text = "F"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="Sprite" parent="LeverB"]
 position = Vector2( 18.8722, 3.01689 )
