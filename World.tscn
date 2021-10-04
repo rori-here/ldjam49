@@ -22,6 +22,7 @@
 [ext_resource path="res://lifecycle/level_manager.gd" type="Script" id=20]
 [ext_resource path="res://levels/day.tres" type="Resource" id=21]
 [ext_resource path="res://floortiles.png" type="Texture" id=22]
+[ext_resource path="res://player/PlayerCamera.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -259,6 +260,13 @@ script = ExtResource( 20 )
 day_resource = ExtResource( 21 )
 reactor_resource = ExtResource( 14 )
 
+[node name="ManualGenerator" parent="." instance=ExtResource( 10 )]
+process_priority = 0
+manual_resource = ExtResource( 7 )
+
+[node name="Sequencer" parent="." instance=ExtResource( 3 )]
+reactor_resource = ExtResource( 14 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer"]
@@ -286,13 +294,7 @@ margin_bottom = 13.0
 reactor_resource = ExtResource( 14 )
 
 [node name="ManualUI" parent="CanvasLayer" instance=ExtResource( 4 )]
-
-[node name="ManualGenerator" parent="." instance=ExtResource( 10 )]
-process_priority = 0
-manual_resource = ExtResource( 7 )
-
-[node name="Sequencer" parent="." instance=ExtResource( 3 )]
-reactor_resource = ExtResource( 14 )
+visible = false
 
 [node name="Timers" type="Node" parent="."]
 
@@ -321,17 +323,8 @@ manual_resource = ExtResource( 7 )
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 124.736, 83.8464 )
 
-[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-drag_margin_left = 0.25
-drag_margin_top = 0.25
-drag_margin_right = 0.25
-drag_margin_bottom = 0.25
-editor_draw_limits = true
-editor_draw_drag_margin = true
+[node name="PlayerCamera" parent="YSort/Player" instance=ExtResource( 23 )]
+reactor_resource = ExtResource( 14 )
 
 [node name="LeverAB" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 184, 104 )

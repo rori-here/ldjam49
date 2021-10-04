@@ -17,13 +17,4 @@ func set_text(time: int):
 	var mm = round(time / 60)
 	var ss = time % 60
 	
-	if (ss == 0):
-		day_label.text = day_label_initial_text.format({
-			"mm": "0" + str(mm),
-			"ss": "00",
-		})
-	else:
-		day_label.text = day_label_initial_text.format({
-			"mm": "0" + str(mm),
-			"ss": ss,
-		})
+	day_label.text = "%02d:%02d" % [mm,ss]
