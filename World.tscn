@@ -187,6 +187,13 @@ script = ExtResource( 20 )
 day_resource = ExtResource( 21 )
 reactor_resource = ExtResource( 14 )
 
+[node name="ManualGenerator" parent="." instance=ExtResource( 10 )]
+process_priority = 0
+manual_resource = ExtResource( 7 )
+
+[node name="Sequencer" parent="." instance=ExtResource( 3 )]
+reactor_resource = ExtResource( 14 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer"]
@@ -214,13 +221,7 @@ margin_bottom = 13.0
 reactor_resource = ExtResource( 14 )
 
 [node name="ManualUI" parent="CanvasLayer" instance=ExtResource( 4 )]
-
-[node name="ManualGenerator" parent="." instance=ExtResource( 10 )]
-process_priority = 0
-manual_resource = ExtResource( 7 )
-
-[node name="Sequencer" parent="." instance=ExtResource( 3 )]
-reactor_resource = ExtResource( 14 )
+visible = false
 
 [node name="Timers" type="Node" parent="."]
 
