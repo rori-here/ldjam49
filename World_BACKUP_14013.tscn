@@ -1,4 +1,8 @@
-[gd_scene load_steps=45 format=2]
+<<<<<<< HEAD
+[gd_scene load_steps=44 format=2]
+=======
+[gd_scene load_steps=37 format=2]
+>>>>>>> d9c0b1a90c9dbf64631d98417e85f755f2f6e4f7
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://lever/Lever.tscn" type="PackedScene" id=2]
