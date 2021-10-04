@@ -19,16 +19,13 @@
 [ext_resource path="res://lights/green.tres" type="Resource" id=17]
 [ext_resource path="res://meltdown/MeltdownUI.tscn" type="PackedScene" id=18]
 [ext_resource path="res://levels/DayUI.tscn" type="PackedScene" id=19]
-[ext_resource path="res://lifecycle/level_manager.gd" type="Script" id=20]
+[ext_resource path="res://lifecycle/LevelManager.tscn" type="PackedScene" id=20]
 [ext_resource path="res://levels/day.tres" type="Resource" id=21]
 [ext_resource path="res://player/PlayerCamera.tscn" type="PackedScene" id=23]
 
 [node name="World" type="Node2D"]
 
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource( 20 )
-day_resource = ExtResource( 21 )
-reactor_resource = ExtResource( 14 )
+[node name="LevelManager" parent="." instance=ExtResource( 20 )]
 
 [node name="ManualGenerator" parent="." instance=ExtResource( 10 )]
 process_priority = 0
@@ -121,8 +118,3 @@ sequence_light_resource = ExtResource( 9 )
 position = Vector2( 280, 80 )
 manual_resource = ExtResource( 7 )
 sequence_light_resource = ExtResource( 17 )
-
-[node name="TooSlowTimer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-autostart = true
