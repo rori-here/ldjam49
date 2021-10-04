@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://manual/ManualEntryUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://manual/manual_ui.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://manual/man.png" type="Texture" id=11]
 [ext_resource path="res://manual/manual_columns.gd" type="Script" id=12]
 [ext_resource path="res://manual/manual_rows.gd" type="Script" id=13]
+[ext_resource path="res://sounds/open-manual.wav" type="AudioStream" id=14]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -22,13 +23,13 @@
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=10]
-
-[sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="StyleBoxEmpty" id=12]
-
 [sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
 
 [node name="ManualUI" type="Control"]
 anchor_right = 1.0
@@ -296,10 +297,10 @@ margin_left = -111.867
 margin_top = -63.909
 margin_right = -78.867
 margin_bottom = -43.909
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/focus = SubResource( 12 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
 custom_colors/font_color_hover = Color( 0.941176, 0.309804, 0.470588, 1 )
@@ -308,5 +309,8 @@ text = "Esc"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
 
 [connection signal="pressed" from="Manual/Escape" to="." method="_on_Escape_pressed"]

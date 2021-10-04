@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sequence-fail.wav-aef14c87364781178234ca39125d17f9.sample"
+
+[deps]
+
+source_file="res://sounds/sequence-fail.wav"
+dest_files=[ "res://.import/sequence-fail.wav-aef14c87364781178234ca39125d17f9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
