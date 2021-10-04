@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/monogram-large.tres" type="DynamicFont" id=1]
+[ext_resource path="res://lifecycle/lifecycle_ui.gd" type="Script" id=2]
+
+[node name="LifecycleUI" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MeltdownLabel" type="Label" parent="."]
+visible = false
+margin_left = 72.0
+margin_top = 54.0
+margin_right = 168.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.909804, 0.231373, 0.231373, 1 )
+text = "Meltdown"
+uppercase = true
+
+[node name="StabilizedLabel" type="Label" parent="."]
+visible = false
+margin_left = 60.0
+margin_top = 54.0
+margin_right = 180.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.117647, 0.737255, 0.45098, 1 )
+text = "Stabilized"
+uppercase = true
