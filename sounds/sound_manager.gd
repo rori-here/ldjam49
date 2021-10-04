@@ -27,10 +27,12 @@ func _on_destabilize(penalty: int, level: int):
 	timer.wait_time = 1
 	timer.start()
 
-func _on_destabilized(level: int):
-	meltdown_audio_player.play()
+func _on_destabilized():
+	audioPlayer = meltdown_audio_player
+
+	timer.wait_time = 1.3
+	timer.start()
 
 func _on_Timer_timeout():
-	print("we here")
 	audioPlayer.play()
 	
