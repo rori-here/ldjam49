@@ -1,5 +1,8 @@
 extends Node
 
+func is_ui_accept_just_pressed() -> bool:
+	return Input.is_action_just_pressed("ui_accept")
+
 func is_interact_just_pressed() -> bool:
 	return Input.is_action_just_pressed("player_interact")
 

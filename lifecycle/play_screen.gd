@@ -1,6 +1,6 @@
 extends ColorRect
 class_name PlayScreen
 
-func _input(event):
-	if (event is InputEventKey):
+func _process(event):
+	if (InputHelper.is_ui_accept_just_pressed()):
 		get_tree().change_scene("res://World.tscn")
