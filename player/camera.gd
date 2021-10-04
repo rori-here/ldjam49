@@ -49,7 +49,7 @@ func connect_to_timer():
 func _on_destabilize(_heat, _level):
 	_on_camera_shake()
 	
-func _on_destabilized(_level):
+func _on_destabilized():
 	set_duration(initial_duration * 4)
 	_on_camera_shake()
 
