@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/floortiles-export.png-07849db85e4c43707cb7e9a9d55c1ea8.stex"
+path="res://.import/table.png-3020f5bcccedb865e29b88c0bab1518d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://floortiles-export.png"
-dest_files=[ "res://.import/floortiles-export.png-07849db85e4c43707cb7e9a9d55c1ea8.stex" ]
+source_file="res://world/table.png"
+dest_files=[ "res://.import/table.png-3020f5bcccedb865e29b88c0bab1518d.stex" ]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/normal_map=0
 flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
-flags/anisotropic=true
+flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false

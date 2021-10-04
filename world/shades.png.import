@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/reactor_floor.png-6fdee6f6fadb28b7561ebfc47187283c.stex"
+path="res://.import/shades.png-05cb2a7d0ee98071d04da3e53372d1dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://reactor_floor.png"
-dest_files=[ "res://.import/reactor_floor.png-6fdee6f6fadb28b7561ebfc47187283c.stex" ]
+source_file="res://world/shades.png"
+dest_files=[ "res://.import/shades.png-05cb2a7d0ee98071d04da3e53372d1dc.stex" ]
 
 [params]
 
