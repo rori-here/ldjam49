@@ -17,7 +17,6 @@ func _ready():
 
 	reactor.connect("stabilize", self, "_on_stabilize")
 	reactor.connect("destabilize", self, "_on_destabilize")
-	reactor.connect("destabilized", self, "_on_destabilized")
 	
 	set_progress(reactor.level)
 	display_stabilizer_states()
@@ -45,9 +44,6 @@ func _on_destabilize(penalty: int, level: int):
 	set_stable_status_label(penalty)
 	display_stabilizer_states()
 	animation_player.play("poof")
-
-func _on_destabilized(level: int):
-	set_progress(level)
 
 func set_progress(level: int):
 	reactor_progress.value = level
