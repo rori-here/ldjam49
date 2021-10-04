@@ -19,7 +19,6 @@ var velocity: Vector2 setget ,get_velocity
 
 onready var animationPlayer = $AnimationPlayer
 onready var sprite = $Sprite
-onready var sprite_side = $SpriteSide
 
 func _ready() -> void:
 	if (!spawn_position_path):
@@ -34,25 +33,22 @@ func set_dir(new_dir):
 	
 func set_sprite():
 	if dir == Direction.DOWN:
-		sprite_side.hide()
-		sprite.show()
+		animationPlayer.play("Idle_Down")
 	elif dir == Direction.LEFT:
-		sprite_side.set_flip_h(true)
-		sprite_side.show()
-		sprite.hide()
+		animationPlayer.play("Walk_Side")		
+		sprite.set_flip_h(true)
 	elif dir == Direction.UP:
-		sprite_side.hide()
-		sprite.show()
+		animationPlayer.play("Idle_Down")
 	elif dir == Direction.RIGHT:
-		sprite_side.set_flip_h(false)
-		sprite_side.show()
-		sprite.hide()
+		animationPlayer.play("Walk_Side")
+		sprite.set_flip_h(false)
+	
 
 func move(v: Vector2) -> void:
 	velocity = move_and_slide(v)
 	
 	var movement_vector = InputHelper.get_movement_input()
-	
+
 	if movement_vector == Vector2(0,0): 
 		pass
 	elif movement_vector == Vector2(1,0): 

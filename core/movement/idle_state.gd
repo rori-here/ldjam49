@@ -3,6 +3,10 @@ class_name IdleState
 
 export var friction = 0.05
 
+func enter(dict = {}):
+	var velocity = .get_player().velocity
+
+
 func process(_delta: float) -> void:
 	if InputHelper.has_movement_input():
 		get_state_machine().transition("WalkState")
